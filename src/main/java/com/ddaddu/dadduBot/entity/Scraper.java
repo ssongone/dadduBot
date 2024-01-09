@@ -13,7 +13,7 @@ import java.util.Optional;
 
 
 public class Scraper {
-
+    public static double MARGIN = 1.2;
     public List<BookInfo> scrapeBookList(String url) {
         List<BookInfo> bookInfos = new ArrayList<>();
         Document document = connect(url).orElseThrow(() -> new IllegalArgumentException("url이 잘못된 것 같습니다"));
@@ -37,7 +37,14 @@ public class Scraper {
         String price = document.select("div.mainItemTable tr:contains(税込価格) td").first().text().replace(",", "").replace("円", "");
 
         Element mainImageUrlElement = document.select("div.mainItemImg img").first();
-        String mainImageUrl = (mainImageUrlElement != null) ? mainImageUrlElement.attr("src") : "";
+        String mainImageUrl = "";
+        if (mainImageUrlElement != null) {
+            mainImageUrl = mainImageUrlElement.attr("src");
+            int questionMarkIndex = mainImageUrl.indexOf("?");
+            if (questionMarkIndex != -1) {
+                mainImageUrl = mainImageUrl.substring(0, questionMarkIndex);
+            }
+        }
 
         String description = makeDescription(document, mainImageUrlElement);
 
@@ -45,7 +52,7 @@ public class Scraper {
                 .title(title)
                 .author(author)
                 .isbn(isbn)
-                .price(Integer.parseInt(price))
+                .price((int) (Integer.parseInt(price)*MARGIN))
                 .mainImageUrl(mainImageUrl)
                 .description(description)
                 .build();

@@ -14,9 +14,9 @@ public class ExcelFileTest {
 
     @Test
     void 통합테스트() {
-        String url = "https://www.e-hon.ne.jp/bec/SE/Genre?dcode=06&ccode=01&Genre_id=060100";
+        String url = "https://www.e-hon.ne.jp/bec/ZS/ZSRank";
         Scraper scraper = new Scraper();
-        List<BookInfo> bookInfos = scraper.scrapeBookList(url);
+        List<BookInfo> bookInfos = scraper.scrapeMagazineList(url);
         System.out.println(bookInfos);
         ExcelFile excelFile = new ExcelFile();
         excelFile.registerAtOnce(bookInfos);

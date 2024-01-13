@@ -16,4 +16,12 @@ public class BookInfo {
     private String bookType;
     private String mainImageUrl;
     private String description;
+    private String date;
+    private String publisher;
+
+
+    private String jan;
+    public void setDescription(String description) {
+        this.description = description;
+    }
 }

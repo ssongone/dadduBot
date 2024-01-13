@@ -31,6 +31,11 @@ public class ScraperTest {
         Scraper scraper = new Scraper();
         BookInfo bookInfo = scraper.scrapDetailPage("https://www.e-hon.ne.jp/bec/SA/Detail?refShinCode=0100000000000034483958&Action_id=121&Sza_id=B0");
         System.out.println("bookInfo.getDescription() = " + bookInfo.getDescription());
+    }
 
+    @Test
+    void 잡지_상세정보_테스트() {
+        Scraper scraper = new Scraper();
+        BookInfo bookInfo = scraper.scrapDetailMagazine("https://www.e-hon.ne.jp/bec/SA/DetailZasshi?refShinCode=0900000004910180390241&Action_id=101&Sza_id=A0");
     }
 }

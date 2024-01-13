@@ -16,8 +16,16 @@ public class ExcelFile {
     static final String MAC_FILE_PATH = "/Users/ssongwon/Desktop/따뚜/";
 
     static final int PRODUCT_CODE_COLUMN = 0;
+
+    static final int CATEGORY_CODE_COLUMN = 1;
+    static final String CATEGORY_CODE_VALUE = "50005752";
+
     static final int PRODUCT_NAME_COLUMN = 2;
     static final int PRODUCT_PRICE_COLUMN = 4;
+
+    static final int PRODUCT_STOCK_COLUMN = 6;
+    static final int PRODUCT_STOCK_VALUE = 100;
+
     static final int PRODUCT_MAIN_IMAGE_COLUMN = 17;
     static final int PRODUCT_DESCRIPTION_COLUMN = 19;
 
@@ -27,14 +35,18 @@ public class ExcelFile {
     static final int IMPORTER_COLUMN = 25;
     static final int MINOR_COLUMN = 28;
 
+    static final int DELIVERY_CODE_COLUMN = 29;
+    static final String DELIVERY_CODE_VALUE = "2618409";
 
     static final int AS_NUMBER_COLUMN = 51;
+    static final int AS_INFO_COLUMN = 52;
     static String AS_NUMBER_VALUE = "010-7268-5664";
 
     static final int ISBN_COLUMN = 75;
     static final int PUBLICATION_DATE_COLUMN = 78;
     static final int PUBLISHER_COLUMN = 79;
 
+    static final int WRITER_COLUMN = 80;
     static final int ILLUSTRATOR_COLUMN = 81;
     static final String ILLUSTRATOR_VALUE = "상세페이지 표기";
 
@@ -77,20 +89,26 @@ public class ExcelFile {
         XSSFRow curRow = sheet.createRow(order);
 
         curRow.createCell(PRODUCT_CODE_COLUMN).setCellValue("code");
+        curRow.createCell(CATEGORY_CODE_COLUMN).setCellValue(CATEGORY_CODE_VALUE);
         curRow.createCell(PRODUCT_NAME_COLUMN).setCellValue(bookInfo.getTitle());
         curRow.createCell(PRODUCT_PRICE_COLUMN).setCellValue(bookInfo.getPrice());
         curRow.createCell(PRODUCT_MAIN_IMAGE_COLUMN).setCellValue(bookInfo.getMainImageUrl());
         curRow.createCell(PRODUCT_DESCRIPTION_COLUMN).setCellValue(bookInfo.getDescription());
+        curRow.createCell(PRODUCT_STOCK_COLUMN).setCellValue(PRODUCT_STOCK_VALUE);
 
         curRow.createCell(ORIGIN_CODE_COLUMN).setCellValue(ORIGIN_CODE_VALUE);
         curRow.createCell(IMPORTER_COLUMN).setCellValue(N_VALUE);
         curRow.createCell(MINOR_COLUMN).setCellValue(Y_VALUE);
+        curRow.createCell(DELIVERY_CODE_COLUMN).setCellValue(DELIVERY_CODE_VALUE);
 
         curRow.createCell(AS_NUMBER_COLUMN).setCellValue(AS_NUMBER_VALUE);
+        curRow.createCell(AS_INFO_COLUMN).setCellValue(AS_NUMBER_VALUE);
 
-        curRow.createCell(ISBN_COLUMN).setCellValue("isbn");
-        curRow.createCell(PUBLICATION_DATE_COLUMN).setCellValue("date");
-        curRow.createCell(PUBLISHER_COLUMN).setCellValue("publisher");
+        curRow.createCell(ISBN_COLUMN).setCellValue("978-4-86593-532-5");
+        curRow.createCell(77).setCellValue(N_VALUE);
+        curRow.createCell(PUBLICATION_DATE_COLUMN).setCellValue(bookInfo.getDate());
+        curRow.createCell(PUBLISHER_COLUMN).setCellValue(bookInfo.getPublisher());
+        curRow.createCell(WRITER_COLUMN).setCellValue(ILLUSTRATOR_VALUE);
         curRow.createCell(ILLUSTRATOR_COLUMN).setCellValue(ILLUSTRATOR_VALUE);
         curRow.createCell(INCOME_DEDUCTION_COLUMN).setCellValue(Y_VALUE);
 

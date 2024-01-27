@@ -29,7 +29,7 @@ public class ScraperTest {
     @Test
     void 이것저것해보는() {
         Scraper scraper = new Scraper();
-        BookInfo bookInfo = scraper.scrapDetailPage("https://www.e-hon.ne.jp/bec/SA/Detail?refShinCode=0100000000000034483958&Action_id=121&Sza_id=B0");
+        BookInfo bookInfo = scraper.scrapDetailPage("https://www.e-hon.ne.jp/bec/SA/Detail?refShinCode=0100000000000034532193&Action_id=121&Sza_id=A0");
         System.out.println("bookInfo.getDescription() = " + bookInfo.getDescription());
     }
 

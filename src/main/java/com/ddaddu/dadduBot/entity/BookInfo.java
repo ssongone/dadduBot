@@ -19,6 +19,7 @@ public class BookInfo {
     private String date;
     private String publisher;
 
+    private String page;
 
     private String jan;
     public void setDescription(String description) {

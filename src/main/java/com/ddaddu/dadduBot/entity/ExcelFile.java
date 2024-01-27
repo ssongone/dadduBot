@@ -76,7 +76,7 @@ public class ExcelFile {
 
     void fillExcel(List<BookInfo> bookList) {
         for (int i = 0; i < bookList.size(); i++) {
-            createCell(i+2, bookList.get(i));
+            createCell(i+4, bookList.get(i));
         }
     }
 
@@ -104,8 +104,8 @@ public class ExcelFile {
         curRow.createCell(AS_NUMBER_COLUMN).setCellValue(AS_NUMBER_VALUE);
         curRow.createCell(AS_INFO_COLUMN).setCellValue(AS_NUMBER_VALUE);
 
-        curRow.createCell(ISBN_COLUMN).setCellValue("978-4-86593-532-5");
-        curRow.createCell(77).setCellValue(N_VALUE);
+//        curRow.createCell(ISBN_COLUMN).setCellValue("978-4-86593-532-5");
+        curRow.createCell(77).setCellValue(Y_VALUE);
         curRow.createCell(PUBLICATION_DATE_COLUMN).setCellValue(bookInfo.getDate());
         curRow.createCell(PUBLISHER_COLUMN).setCellValue(bookInfo.getPublisher());
         curRow.createCell(WRITER_COLUMN).setCellValue(ILLUSTRATOR_VALUE);
